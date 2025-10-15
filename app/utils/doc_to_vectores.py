@@ -25,7 +25,7 @@ def store_vectors_in_pinecone(vectors: list[dict[str, Any]]) -> list[str]:
 
     for i in range(0, len(vectors), batch_size):
         batch = vectors[i : i + batch_size]
-        response = index.upsert(vectors=batch)
+        index.upsert(vectors=batch)
         vector_ids.extend([vector["id"] for vector in batch])
 
     return vector_ids
