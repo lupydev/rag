@@ -12,6 +12,9 @@ class Settings(BaseSettings):
     PINECONE_API_KEY: str
     PINECONE_INDEX_NAME: str
 
+    # LANGSMITH
+    LANGSMITH_API_KEY: str
+
     model_config = SettingsConfigDict(env_file=".env")
 
 
