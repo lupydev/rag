@@ -140,7 +140,10 @@ def delete_all_vectors() -> dict[str, Any]:
 
     except Exception as e:
         logger.error(f"❌ Error eliminando vectores: {e}")
-        raise HTTPException(500, f"Error deleting vectors: {str(e)}")
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Error deleting vectors: {str(e)}",
+        )
 
 
 def get_index_stats() -> dict[str, Any]:
@@ -168,4 +171,7 @@ def get_index_stats() -> dict[str, Any]:
 
     except Exception as e:
         logger.error(f"❌ Error obteniendo estadísticas: {e}")
-        raise HTTPException(500, f"Error getting index stats: {str(e)}")
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Error getting index stats: {str(e)}",
+        )
